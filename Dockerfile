@@ -40,6 +40,9 @@ RUN set -x \
   && rm gradle-${GRADLE_VERSION}-bin.zip \
   && apk del wget
 
+# 安装 mysql-client
+RUN apk update && apk add mysql-client && rm -rf /var/cache/apk/*
+
 # 设置 app 目录
 WORKDIR /app
 
