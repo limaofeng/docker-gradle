@@ -40,6 +40,9 @@ RUN set -x \
   && rm gradle-${GRADLE_VERSION}-bin.zip \
   && apk del wget
 
+# 安装 protobuf
+RUN apk update && apk add protobuf && ln -s /usr/bin/protoc /usr/local/bin/protoc && rm -rf /var/cache/apk/*
+
 # 安装 mysql-client
 RUN apk update && apk add mysql-client && rm -rf /var/cache/apk/*
 
